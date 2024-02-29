@@ -1,15 +1,3 @@
-<script setup>
-    const nome = 'Isabelli'
-    const idade = 16
-
-    function inverter(texto) {
-        return texto.split('').reverse().join('')
-    }
-
-    function saudacao() {
-        return `Olá, ${nome}!`
-    }
-</script>
 
 <template>
     
@@ -36,6 +24,16 @@
 </template>
 
 <script>
+const nome = 'Isabelli'
+    const idade = 16
+
+    function inverter(texto) {
+        return texto.split('').reverse().join('')
+    }
+
+    function saudacao() {
+        return `Olá, ${nome}!`
+    }
 export default {
   data() {
     return {
@@ -57,6 +55,8 @@ export default {
     console.log(`O valor inicial do contador é ${this.contador}.`)
   }
 }
+
+
  </script>
 
 <style scoped>
