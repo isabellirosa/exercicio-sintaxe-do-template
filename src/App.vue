@@ -1,3 +1,38 @@
+<script setup>
+    const nome = 'Isabelli'
+    const idade = 16
+
+    function inverter(texto) {
+        return texto.split('').reverse().join('')
+    }
+
+    function saudacao() {
+        return `Olá, ${nome}!`
+    }
+</script>
+<script>
+export default {
+  data() {
+    return {
+      contador: 0
+    }
+  },
+  methods: {
+    incrementarContador() {
+      this.contador++
+    },
+    decrementarContador(){
+    if(this.contador>0)this.contador--
+    },
+    zerar(){
+    this.contador=0
+    }
+  },
+  mounted() {
+    console.log(`O valor inicial do contador é ${this.contador}.`)
+  }
+}
+ </script>
 
 <template>
     
@@ -22,42 +57,6 @@
         <p> {{ saudacao() }}  </p>
     </div>
 </template>
-
-<script>
-const nome = 'Isabelli'
-    const idade = 16
-
-    function inverter(texto) {
-        return texto.split('').reverse().join('')
-    }
-
-    function saudacao() {
-        return `Olá, ${nome}!`
-    }
-export default {
-  data() {
-    return {
-      contador: 0
-    }
-  },
-  methods: {
-    incrementarContador() {
-      this.contador++
-    },
-    decrementarContador(){
-    if(this.contador>0)this.contador--
-    },
-    zerar(){
-    this.contador=0
-    }
-  },
-  mounted() {
-    console.log(`O valor inicial do contador é ${this.contador}.`)
-  }
-}
-
-
- </script>
 
 <style scoped>
 button {
