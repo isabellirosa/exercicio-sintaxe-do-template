@@ -11,46 +11,32 @@ function inverter(texto) {
 function saudacao() {
   return `Olá, ${nome}!`
 }
-</script>
-/* export default {
-  data() {
-    return {
-      contador: 0
-    }
-  },
-  methods: {
-    incrementarContador() {
-      this.contador++
-    },
-    decrementarContador(){
-    if(this.contador>0)this.contador--
-    },
-    zerar(){
-    this.contador=0
-    }
-  },
-  mounted() {
-    console.log(`O valor inicial do contador é ${this.contador}.`)
+function incrementar() {
+    contador.value++;
   }
- }
-<!-- </script> -->
+
+  function decrementar() {
+    if (contador.value > 0) {
+      contador.value--;
+    }
+  }
+</script>
 
 <template>
   <div class="tudo">
     <div class="container1">
       <div class="contador">
-        <button @click="contador++">+</button>
+        <button @click="incrementar">+</button>
         <p class="numero_contador"> {{ contador }}</p>
-        <button @click="contador--">-</button>
+        <button @click="decrementar">-</button>
       </div>
       <div id="zerar">
         <button class="zerar" @click="contador = 0">reiniciar</button>
       </div>
-      <div class="div1" v-if="contador > 10">
-        <h1>O valor do contador é maior que 10!</h1>
-      </div>
-      <div class="div2" v-if="contador < 10">
-        <h1>O valor do contador é menor que 10!</h1>
+      <div class="maior-ou-menor">
+        <p v-if="contador > 10" class=maior>O valor do contador é maior que 10!</p>
+        <p v-else-if="contador < 10" class="menor">O valor do contador é menor que 10!</p>
+        <p v-else class="igual">O valor do contador é igual a 10!</p>
       </div>
     </div>
     <div class="container2">
@@ -77,6 +63,7 @@ function saudacao() {
 
 .container1 {
   background-color: rgb(35, 36, 35);
+  height: min-content;
  margin: 50px;
  border-radius: 15px;
  padding: 50px;
@@ -87,6 +74,7 @@ function saudacao() {
 
 .container2 {
   background-color: rgb(111, 135, 241);
+  height: min-content;
   margin: 50px;
   padding: 50px;
  border-radius: 15px;
@@ -95,9 +83,10 @@ function saudacao() {
   justify-content: space-evenly;
 }
 p{
-  margin:20px 10px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 500;
+  margin:10px 0px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 100;
+  color: rgb(31, 34, 37);
 }
 button {
   background-color: aliceblue;
@@ -129,13 +118,6 @@ button {
   margin: 7px;
   color:rgb(212, 62, 119) ;
 }
-/*.info {
-  background-color: rgba(35, 12, 22, 1);
-  padding: 20px 30px;
-  color: rgb(183, 210, 219);
-  border-radius: 10px;
-}*/
-
 h1 {
   color: aliceblue;
   font-weight: bold;
@@ -144,23 +126,20 @@ h1 {
   text-align: center;
 
 }
-
-.div1,
-.div2 {
-  margin: 30px;
-  display: block;
+.maior {
+  color:rgb(212, 62, 119);
+  font-weight: bold;
 }
 
-.div1>h1 {
-  color:rgb(212, 62, 119);;
-}
-
-.div2>h1 {
+.menor {
   color: rgb(255, 255, 255);
+  font-weight: bold;
 }
-.contador,
-.div1,
-.div2 {
+.igual{
+  color: rgb(63, 167, 49);
+  font-weight: bold;
+}
+.contador{
   display: flex;
   align-items: center;
   justify-content: center;
