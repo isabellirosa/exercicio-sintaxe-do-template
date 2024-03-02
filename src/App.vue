@@ -37,66 +37,97 @@ function saudacao() {
 
 <template>
   <div class="tudo">
-  <div class="container1">
-    <div class="contador">
-      <button @click="contador++">+</button>
-      <p> {{ contador }}</p>
-      <button @click="contador--">-</button>
-      <button id="zerar" @click="contador = 0">Zerar</button>
+    <div class="container1">
+      <div class="contador">
+        <button @click="contador++">+</button>
+        <p class="numero_contador"> {{ contador }}</p>
+        <button @click="contador--">-</button>
+      </div>
+      <div id="zerar">
+        <button class="zerar" @click="contador = 0">reiniciar</button>
+      </div>
+      <div class="div1" v-if="contador > 10">
+        <h1>O valor do contador é maior que 10!</h1>
+      </div>
+      <div class="div2" v-if="contador < 10">
+        <h1>O valor do contador é menor que 10!</h1>
+      </div>
     </div>
-    <div class="div1" v-if="contador > 10">
-      <h1>O valor do contador é maior que 10!</h1>
-    </div>
-    <div class="div2" v-if="contador < 10">
-      <h1>O valor do contador é menor que 10!</h1>
+    <div class="container2">
+        <h1>Exemplo 1 - Mostrando informações na tela</h1>
+        <div class="info">
+        <p>Nome: {{ nome }} </p>
+        <p>O nome tem {{ nome.length }} caracteres</p>
+        <p>O nome invertido é: {{ inverter(nome.toUpperCase()) }} </p>
+        <hr>
+        <p>Idade: {{ idade }} anos</p>
+        <p>Para completar 50 anos faltam: {{ 50 - idade }} anos</p>
+        <hr>
+        <p> Exemplo de saudação usando função: {{ saudacao() }} </p>
+      </div>
     </div>
   </div>
-  <div class="container2">
-    <div class="info">
-      <h1>Exemplo 1 - Mostrando informações na tela</h1>
-      <p>Nome: {{ nome }} </p>
-      <p>Idade: {{ idade }} anos</p>
-      <hr />
-      <p>Para completar 50 anos faltam: {{ 50 - idade }} anos</p>
-      <p>O nome tem {{ nome.length }} caracteres</p>
-      <p>O nome invertido é: {{ inverter(nome.toUpperCase()) }} </p>
-      <hr />
-      <p> Exemplo de saudação usando função</p>
-      <p> {{ saudacao() }} </p>
-    </div>
-  </div>
-</div>
 </template>
 
 <style scoped>
-.tudo{
-  display:flex;
+.tudo {
+  display: flex;
   flex-direction: row;
 }
-.container1{
-  background-color: rgb(201, 201, 86);
-  width: 50%;
-  height: 700px;
+
+.container1 {
+  background-color: rgb(35, 36, 35);
+ margin: 50px;
+ border-radius: 15px;
+ padding: 50px;
   display: grid;
   align-content: center;
   justify-content: space-evenly;
 }
-.container2{
-  background-color: rgb(119, 201, 86);
-  width: 50%;
-  height: 700px;
+
+.container2 {
+  background-color: rgb(111, 135, 241);
+  margin: 50px;
+  padding: 50px;
+ border-radius: 15px;
+  display: grid;
+  align-content: center;
+  justify-content: space-evenly;
+}
+p{
+  margin:20px 10px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
 }
 button {
-  background-color: rgb(231, 230, 255);
+  background-color: aliceblue;
+  color: rgb(212, 62, 119);
   border-radius: 8px;
-  border: 1px solid black;
+  border: 2px solid rgb(240, 221, 228);;
   margin: 5px;
-  width:50px;
-  height: 50px;
+  width: 100px;
+  height: 80px;
+  font-size: xx-large;
+  font-family:Arial, Helvetica, sans-serif;
 }
-#zerar{
-  width:150px;
-  display:block;
+
+#zerar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zerar{
+  width: 240px;
+  height: 50px;
+  background: rgb(212, 51, 113);
+  font-size: larger;
+  font-weight: bold;
+  color: aliceblue;
+}
+.numero_contador{
+  font-size: xx-large;
+  margin: 7px;
+  color:rgb(212, 62, 119) ;
 }
 /*.info {
   background-color: rgba(35, 12, 22, 1);
@@ -106,9 +137,11 @@ button {
 }*/
 
 h1 {
-  color: rgb(255, 255, 255);
+  color: aliceblue;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: large;
+  font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
 
 }
 
@@ -119,17 +152,17 @@ h1 {
 }
 
 .div1>h1 {
-  color: green;
+  color:rgb(212, 62, 119);;
 }
 
 .div2>h1 {
-  color: rgb(255, 48, 48);
+  color: rgb(255, 255, 255);
 }
-
 .contador,
 .div1,
 .div2 {
   display: flex;
   align-items: center;
   justify-content: center;
-}</style>
+}
+</style>
